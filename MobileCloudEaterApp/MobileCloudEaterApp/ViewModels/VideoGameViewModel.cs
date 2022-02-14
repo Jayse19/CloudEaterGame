@@ -25,7 +25,7 @@ public partial class VideoGameViewModel : ObservableObject
 
     private async void OnBotClicked()
     {
-        await Shell.Current.GoToAsync($"//{nameof(AutoBots)}");
+        await Shell.Current.GoToAsync($"{nameof(AutoBots)}");
     }
 
     [ObservableProperty]
