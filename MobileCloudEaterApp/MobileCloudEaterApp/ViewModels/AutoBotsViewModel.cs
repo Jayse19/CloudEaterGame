@@ -26,38 +26,29 @@ namespace MobileCloudEaterApp.ViewModels
         {
             Result = await apiService.JoinGameAsync(DesiredPlayerName);
             int i = 0;
-            int moveUp = 2;
-            int moveDown = 6;
-            int moveRight = 4;
-            int moveLeft = 8;
+            int movePosition = 2;
             while (i < 100)
             {
                 
-                for (i = moveUp; i < moveRight; i++)
-                {
-                    await apiService.Move("right", "pass");
-                }
-                for (i = moveRight; i < moveDown; i++)
-                {
-                    await apiService.Move("down", "pass");
-                }
-                for (i = moveDown; i < moveLeft; i++)
-                {
-                    await apiService.Move("left", "pass");
-                 
-                }
-                for (i = moveLeft; i < moveUp; i++)
+                for (i = 0; i < movePosition; i++)
                 {
                     await apiService.Move("up", "pass");
                 }
-                if (i == moveLeft)
+                for (i = 0; i < movePosition; i++)
                 {
-                    i = 0;
-                    moveUp += 1;
-                    moveDown += 1;
-                    moveRight += 1;
-                    moveLeft += 1;
+                    await apiService.Move("right", "pass");
                 }
+                movePosition++;
+                for (i = 0; i < movePosition; i++)
+                {
+                    await apiService.Move("down", "pass");
+                 
+                }
+                for (i = 0; i < movePosition; i++)
+                {
+                    await apiService.Move("left", "pass");
+                }
+                movePosition++;
             }
             
         }
