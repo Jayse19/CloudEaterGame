@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileCloudEaterApp.Views.VideoGamePage"
+             xmlns:vm="clr-namespace:MobileCloudEaterApp.ViewModels"
+             Title="Video Game">
+    <StackLayout>
+        <Label Text="Type in your player name and join" />
+        <Entry Placeholder = "Username" Text="{Binding DesiredPlayerName}" />
+        <Entry Placeholder = "Password" Text="{Binding Password}"/>
+        <Button Margin="0,10,0,0"
+                        Text="Join Game"
+                        Command="{Binding JoinGameCommand}"
+                        IsVisible="{Binding IsJoinButtonVisible}"
+                        BackgroundColor="{StaticResource Primary}"
+                        TextColor="White" />
+        <Button Text="Use A Bot" Command="{Binding AutoBotCommand}" />
+        <Label Text="{Binding Result}" />
+        <Button Text="Left" Command="{Binding LeftMoveCommand}" IsVisible="{Binding AreGameButtonsVisible}"/>
+        <Button Text="Right" Command="{Binding RightMoveCommand}" IsVisible="{Binding AreGameButtonsVisible}"/>
+        <Button Text="Up" Command="{Binding UpMoveCommand}" IsVisible="{Binding AreGameButtonsVisible}"/>
+        <Button Text="Down" Command="{Binding DownMoveCommand}" IsVisible="{Binding AreGameButtonsVisible}"/>
+    </StackLayout>
+
+</ContentPage>
