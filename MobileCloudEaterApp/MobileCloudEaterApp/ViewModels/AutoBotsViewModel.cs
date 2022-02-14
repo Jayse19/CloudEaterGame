@@ -26,32 +26,37 @@ namespace MobileCloudEaterApp.ViewModels
         {
             Result = await apiService.JoinGameAsync(DesiredPlayerName);
             int i = 0;
-            int moveUp = 20;
-            int moveDown = 80;
-            int moveRight = 40;
-            int moveLeft = 100;
-            for (i = 0; i < moveUp; i++)
+            int moveUp = 2;
+            int moveDown = 6;
+            int moveRight = 4;
+            int moveLeft = 8;
+            while (i < 100)
             {
-                await apiService.Move("up","pass");
-            }
-            for (i = 20; i < moveRight; i++)
-            {
-                await apiService.Move("right","pass");
-            }
-            for (i = 60; i < moveDown; i++)
-            {
-                await apiService.Move("down","pass");
-            }
-            for (i = 80; i < moveLeft; i++)
-            {
-                await apiService.Move("left", "pass");
-                if (i == 99)
+                
+                for (i = moveUp; i < moveRight; i++)
+                {
+                    await apiService.Move("right", "pass");
+                }
+                for (i = moveRight; i < moveDown; i++)
+                {
+                    await apiService.Move("down", "pass");
+                }
+                for (i = moveDown; i < moveLeft; i++)
+                {
+                    await apiService.Move("left", "pass");
+                 
+                }
+                for (i = moveLeft; i < moveUp; i++)
+                {
+                    await apiService.Move("up", "pass");
+                }
+                if (i == moveLeft)
                 {
                     i = 0;
-                    moveUp = moveUp + 5;
-                    moveDown = moveDown + 5;
-                    moveRight = moveRight + 5;
-                    moveLeft = moveLeft + 5;
+                    moveUp += 1;
+                    moveDown += 1;
+                    moveRight += 1;
+                    moveLeft += 1;
                 }
             }
             
