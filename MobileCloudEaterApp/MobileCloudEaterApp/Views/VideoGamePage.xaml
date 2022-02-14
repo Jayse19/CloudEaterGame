@@ -14,7 +14,7 @@
                         IsVisible="{Binding IsJoinButtonVisible}"
                         BackgroundColor="{StaticResource Primary}"
                         TextColor="White" />
-        <Button Text="Use A Bot" Command="{Binding AutoBotCommand}" />
+        <Button Text="Use A Bot" Command="{Binding AutoBotsCommand}" />
         <Label Text="{Binding Result}" />
         <Button Text="Left" Command="{Binding LeftMoveCommand}" IsVisible="{Binding AreGameButtonsVisible}"/>
         <Button Text="Right" Command="{Binding RightMoveCommand}" IsVisible="{Binding AreGameButtonsVisible}"/>

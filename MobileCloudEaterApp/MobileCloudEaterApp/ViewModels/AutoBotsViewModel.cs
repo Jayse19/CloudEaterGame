@@ -26,6 +26,10 @@ namespace MobileCloudEaterApp.ViewModels
         {
             Result = await apiService.JoinGameAsync(DesiredPlayerName);
         }
+        public async Task MoveBot()
+        {
+            await apiService.MoveBot("up");
+        }
     }
     
 }
