@@ -22,8 +22,7 @@ namespace API.Controllers
         [HttpGet(Name = "MoveBot")]
         public async Task<string> MoveBot(string moveToken)
         {
-            while(moveToken != null)
-            {
+           
                 string moveToEatPills = await httpClient.GetStringAsync($"https://hungrygame.azurewebsites.net/move/{moveToken}/?token={token.Token}");
                 if (moveToEatPills.Contains("true"))
                 {
@@ -34,7 +33,6 @@ namespace API.Controllers
                 {
                     return moveToEatPills;
                 }
-            }
                 
         }
 

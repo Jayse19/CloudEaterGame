@@ -22,13 +22,39 @@ namespace MobileCloudEaterApp.ViewModels
         private string desiredPlayerName;
 
         [ICommand]
-        public async Task JoinGame()
+        public async Task JoinBot()
         {
             Result = await apiService.JoinGameAsync(DesiredPlayerName);
-        }
-        public async Task MoveBot()
-        {
-            await apiService.MoveBot("up");
+            int i = 0;
+            int moveUp = 20;
+            int moveDown = 80;
+            int moveRight = 40;
+            int moveLeft = 100;
+            for (i = 0; i < moveUp; i++)
+            {
+                await apiService.Move("up","pass");
+            }
+            for (i = 20; i < moveRight; i++)
+            {
+                await apiService.Move("right","pass");
+            }
+            for (i = 60; i < moveDown; i++)
+            {
+                await apiService.Move("down","pass");
+            }
+            for (i = 80; i < moveLeft; i++)
+            {
+                await apiService.Move("left", "pass");
+                if (i == 99)
+                {
+                    i = 0;
+                    moveUp = moveUp + 5;
+                    moveDown = moveDown + 5;
+                    moveRight = moveRight + 5;
+                    moveLeft = moveLeft + 5;
+                }
+            }
+            
         }
     }
     

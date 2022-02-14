@@ -7,7 +7,7 @@
             <Label Text="Welcome to the Bot Runner! Click to run the bot" VerticalOptions="Center" />
             <Label Text="Enter in a player name: " />
             <Entry Placeholder="Player Name" Text="{Binding DesiredPlayerName}" />
-            <Button Text="Run Bot" Command="{Binding RunBotCommand }" />
+            <Button Text="Join Bot" Command="{Binding JoinBotCommand}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
