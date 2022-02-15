@@ -20,43 +20,54 @@ namespace API.Controllers
             this.token = token;
         }
         [HttpGet(Name = "MoveBot")]
-        public async Task<string> MoveBot(string moveToken)
+        public async Task<string> MoveBot()
         {
             int i = 0;
             int movePosition = 2;
-            while (i < 100)
+            while (i < 10)
             {
 
                 for (i = 0; i < movePosition; i++)
                 {
-                    moveToken = "up";
+                    string moveToEatPills = await httpClient.GetStringAsync($"https://hungrygame.azurewebsites.net/move/up?token={token.Token}");
+                    if (moveToEatPills.Contains("true"))
+                    {
+                        token.EatenPills += 1;
+                        
+                    }
                 }
                 for (i = 0; i < movePosition; i++)
                 {
-                    moveToken = "right";
+                    string moveToEatPills = await httpClient.GetStringAsync($"https://hungrygame.azurewebsites.net/move/right?token={token.Token}");
+                    if (moveToEatPills.Contains("true"))
+                    {
+                        token.EatenPills += 1;
+                        
+                    }
                 }
                 movePosition++;
                 for (i = 0; i < movePosition; i++)
                 {
-                    moveToken = "down";
-
+                    string moveToEatPills = await httpClient.GetStringAsync($"https://hungrygame.azurewebsites.net/move/down?token={token.Token}");
+                    if (moveToEatPills.Contains("true"))
+                    {
+                        token.EatenPills += 1;
+                        
+                    }
                 }
                 for (i = 0; i < movePosition; i++)
                 {
-                    moveToken = "left";
+                    string moveToEatPills = await httpClient.GetStringAsync($"https://hungrygame.azurewebsites.net/move/left?token={token.Token}");
+                    if (moveToEatPills.Contains("true"))
+                    {
+                        token.EatenPills += 1;
+                        
+                    }
                 }
                 movePosition++;
             }
-            string moveToEatPills = await httpClient.GetStringAsync($"https://hungrygame.azurewebsites.net/move/{moveToken}/?token={token.Token}");
-                if (moveToEatPills.Contains("true"))
-                {
-                    token.EatenPills += 1;
-                    return token.EatenPills.ToString();
-                }
-                else
-                {
-                    return moveToEatPills;
-                }
+
+            return token.EatenPills.ToString();
                 
         }
 

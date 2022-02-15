@@ -9,8 +9,8 @@ namespace MobileCloudEaterApp.Services
     public class ApiService : IAPIService
     {
         private readonly HttpClient httpClient = new HttpClient();
-        private const string ServerUrl = "https://eateateateater.azurewebsites.net";
-        //private const string ServerUrl = "http://localhost:5149";
+        //private const string ServerUrl = "https://eateateateater.azurewebsites.net";
+        private const string ServerUrl = "http://localhost:5149";
         public async Task<string> JoinGameAsync(string playerName)
         {
             return await httpClient.GetStringAsync($"{ServerUrl}/join?name={playerName}");
@@ -27,11 +27,11 @@ namespace MobileCloudEaterApp.Services
                 throw;
             }
         }
-        public async Task<string> MoveBot(string moveToken)
+        public async Task<string> MoveBot()
         {
             try
             {
-                return await httpClient.GetStringAsync($"{ServerUrl}/Move?moveToken={moveToken}");
+                return await httpClient.GetStringAsync($"{ServerUrl}/MoveBot");
             }
             catch (Exception ex)
             {

@@ -10,7 +10,7 @@ namespace MobileCloudEaterApp.Services
     {
         Task<string> JoinGameAsync(string playerName);
         Task<string> Move(string moveToken, string password);
-        Task<string> MoveBot(string moveToken);
+        Task<string> MoveBot();
     }
 
     //public class BasicGameApiService : IAPIService
