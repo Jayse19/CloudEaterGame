@@ -33,12 +33,6 @@ app.MapGet("/start", (string password, BossLogic bossLogic) => bossLogic.StartRu
 .WithName("start");
 
 
-app.MapGet("/start", (ILogger<Program> logger) =>
-{
-    logger.LogInformation($"start");
-})
-.WithName("start");
-
 app.MapGet("/done", (ILogger<Program> logger) =>
 {
     logger.LogInformation($"done l");

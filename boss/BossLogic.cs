@@ -8,7 +8,7 @@ namespace boss
         private readonly IConfiguration config;
         private readonly HttpClient httpClient;
         private List<Cell> board;
-       // public List<Worker> Workers;
+        public List<Worker> workers;
 
        public BossLogic(ILogger<BossLogic> logger, IConfiguration config)
        {

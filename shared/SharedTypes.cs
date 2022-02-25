@@ -14,7 +14,20 @@ public class OccupiedBy
     public int score {get; set;}
 }
 
+public class Worker
+{
+    public string workerName { get; set;}
+    public int workerID {get; set;}
+    public Location workerLocation { get; set;}
+}
 
-//public record State(string gameState);
-//public record Status(string workerName, State currentState, Location Destination);
+public class State
+{
+    public string gameState {get; set;}
+}
+public class Status
+{
+    public State currentState {get; set;}
+    public Location Destination {get; set;}
+}
 
